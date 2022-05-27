@@ -1,0 +1,34 @@
+<section>
+    <div class="rt-container">
+        <div class="col-rt-12">
+            <div class="Scriptcontent">
+                <div class="student-profile py-4">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card shadow-sm">
+                                    <div class="card-header bg-transparent text-center">
+                                        <img class="profile_img" src="http://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png"
+                                            alt="student dp">
+                                        <h3>{{profile.name}}</h3>
+                                        <button type="button" class="btn btn-danger" (click)="deleteProfile()"
+                                        *ngIf="userId==myUserid">
+                                            Delete Profile
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="mb-0"><strong class="pr-1">ID:</strong>{{profile.id}}</p>
+                                        <p class="mb-0"><strong class="pr-1">Email:</strong>{{profile.email}}</p>
+                                        <p class="mb-0"><strong class="pr-1">Created On:</strong>{{profile.createdAt}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-home [usrId]="userId"></app-home>

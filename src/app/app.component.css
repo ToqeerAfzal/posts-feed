@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #edeff0;
+    font-family: 'Hind', sans-serif;
+  }
+  
+  
+  .navbar {
+    background-color: #25283D;
+    color: #ffffff;
+    min-width: 100%;
+  }
+  
+  .navbar .menu {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+  
+  @media (max-width: 820px) {
+    .navbar .menu {
+      display: block;
+      position: relative;
+    }
+  }
+  
+  .navbar .menu li {
+    flex: 1;
+    display: flex;
+    text-align: center;
+    transition: background-color 0.5s ease;
+  }
+  
+  .navbar .menu a {
+    flex: 1;
+    justify-content: center;
+    display: inline-flex;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .navbar .menu a > .fa {
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  
+  .navbar .menu li:hover {
+    background-color: #8F3985;
+  }
+  
+  .navbar .menu li:hover .container {
+    display: flex;
+  }
+  
+  @media (max-width: 820px) {
+    .navbar .menu li:hover .container {
+      display: none;
+    }
+    
+    .fa-angle-down {
+      display: none;
+    }
+  }
+  
+  .hm-gradient {
+    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+  }
+  .darken-grey-text {
+    color: #2E2E2E;
+  }
+  .input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+  .input-group.md-form.form-sm.form-2 input.purple-border {
+    border: 1px solid #9e9e9e;
+  }
+  .input-group.md-form.form-sm.form-2 input[type=text]:focus:not([readonly]).purple-border {
+    border: 1px solid #ba68c8;
+    box-shadow: none;
+  }
+  .form-2 .input-group-addon {
+    border: 1px solid #ba68c8;
+  }
+  .danger-text {
+    color: #ff3547; 
+  }  
+  .success-text {
+    color: #00C851; 
+  }
+  .table-bordered.red-border, .table-bordered.red-border th, .table-bordered.red-border td {
+    border: 1px solid #ff3547!important;
+  }        
+  .table.table-bordered th {
+    text-align: center;
+  }

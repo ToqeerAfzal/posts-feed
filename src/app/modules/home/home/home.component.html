@@ -1,0 +1,77 @@
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">CREATE POST</h4>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="postBody" [(ngModel)]="postBody" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="createPost()">
+                    Save
+                </button>
+                <button type="button" class="btn btn-danger" (click)="closePopup()">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body class="hm-gradient">
+    <main>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="py-3 text-center font-bold font-up blue-text">Posts</h2>
+                            <button type="button" class="btn btn-primary crudBtn" (click)="openPopup()">Create
+                                Post</button>
+                        </div>
+                    </div>
+                    <input type="search" class="form-control placeholder-active active searchInp" placeholder="Type query" aria-label="Search"
+                    [(ngModel)]="searchQry" (keyup)="getPosts()"/>
+                    <table class="table table-hover table-responsive mb-0">
+                        <thead>
+                            <tr>
+                                <th scope="row" (click)="sortColumns('id')">#</th>
+                                <th class="th-lg" (click)="sortColumns('body')">Body</th>
+                                <th class="th-lg" (click)="sortColumns('userId')">User Id</th>
+                                <th class="th-lg" (click)="sortColumns('createdAt')">Created On</th>
+                                <th class="th-lg">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let post of posts?.records">
+                                <th scope="row">{{post.id}}</th>
+                                <td>{{post.body}}</td>
+                                <td>{{post.userId}}</td>
+                                <td>{{post.createdAt}}</td>
+                                <td>
+                                    <ng-container *ngIf="post.userId==userId"><i class="fa fa-trash action-icon"
+                                            aria-hidden="true" (click)="deletePost(post)"></i> <i
+                                            class="fa fa-pencil action-icon" aria-hidden="true"
+                                            (click)="editPost(post)"></i></ng-container>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-center">
+                        <nav class="my-4 pt-2">
+                            <ul class="pagination pagination-circle pg-blue mb-0">
+                                <li class="page-item"><a class="page-link" [ngClass]="{disabledClass:(page<=1)}"
+                                        (click)="changePage(-1)">Previous</a></li>
+                                <li class="page-item"><a class="page-link">{{page}}</a></li>
+                                <li class="page-item"><a class="page-link"
+                                        [ngClass]="{disabledClass:(page*size>=total)}" (click)="changePage(1)">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
